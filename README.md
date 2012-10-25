@@ -4,7 +4,7 @@ Use the magic of Statamic to power your comments
 
 ## Features
 
-- Basic supports authentication of Statamic
+- Basic supports authentication of [Statamic](http://statamic.com/)
 - Gravatar Support
 - Honeypot (inspired by Eric Barnes (<https://github.com/ericbarnes/Statamic-email-form>)
 
