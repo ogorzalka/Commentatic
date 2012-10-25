@@ -20,6 +20,8 @@ Then field the following parameters :
 - `comment_per_page`: Number of comments per page
 - `comment_folder`: Set the folder that will host your comments and located in the `_content` folder of your Statamic installation. Use a underscore before the folder name in order to hide the navigation (default: `_comments`)
 
+Create a folder dedicated to the comments in the `_content` folder. Assign write permissions to the folder.
+
 ## Comment listing usage
 
 Use the `{{commentatic:listing}}` method in the same way as for the Statamic `{{entries:listing}}` method. The options are similar except that you don't have to specify the limit (defined in the config file).
