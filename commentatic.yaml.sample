@@ -1,0 +1,5 @@
+username_field: username
+email_field: email
+comment_field: comment
+comment_per_page: 10
+comment_folder: _comments
