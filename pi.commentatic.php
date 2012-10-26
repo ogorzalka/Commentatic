@@ -50,6 +50,7 @@ class Plugin_commentatic extends Plugin {
   // comment form 
   public function form() {
     $this->init();
+    
 
     // Set up some default vars.
     $output = '';
@@ -90,6 +91,7 @@ class Plugin_commentatic extends Plugin {
         $vars = array(array('error' => true, 'errors' => 'Could not send comment'));
       }
     }
+    
     // Display the form on the page.
     $output .= '<form method="post"';
     $output .= ' action="' . rtrim(Statamic::get_site_root(), '/').$this->app->request()->getResourceUri().'"';
@@ -167,7 +169,6 @@ class Plugin_commentatic extends Plugin {
           $list[$key]['content'] = Statamic::parse_content($item['content'], $item);
         }
         return $this->parse_loop($this->content, $list);
-      
       } else {
         return array('no_results' => true);
       }

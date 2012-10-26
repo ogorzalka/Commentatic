@@ -60,15 +60,40 @@ Here are the options :
 
 Example of usage :
 
-    {{ commentatic:pagination }}
-      {{ if previous_page }}
-        <a href="{{ previous_page }}" class="btn">Previous</a>
+  {{ commentatic:form honeypot="true" id="post-comment" }}
+      {{ if error}}
+          <h1>Error</h1>
+          <ul>
+          {{ errors }}
+              <li>{{error}}</li>
+          {{ /errors }}
+          </ul>
       {{ endif }}
-      {{ if next_page }}
-        <a href="{{ next_page }}" class="btn">Next</a>
+  
+      {{ if success }}
+          <p>Your message has been sent!</p>
+      {{ else }}
+          {{ if logged_in }}
+          <div class="clearfix">
+            <p class="offset2">Logged in as <strong>{{ username }}</strong></p>
+          </div>
+          {{ else }}
+          <p class="offset2">
+              <label for="username">Username*:</label><br />
+              <input type="text" name="username" id="username" value="{{ post:username }}" placeholder="Your Username">
+          </p>
+          <p class="offset2">
+              <label  for="from">Email*:</label><br />
+              <input type="text" name="email" id="email" value="{{ post:email }}" placeholder="Your email address">
+          </p>
+          {{ endif }}
+          <p class="clearfix">
+            <label class="span2" for="comment">Your comment:</label>
+            <textarea class="span6" type="text" rows="5" name="comment" id="comment" placeholder="Your thoughts here !">{{ post:comment }}</textarea>
+          </p>
+          <p class="clearfix"><input class="offset2 btn" value="Send comment" type="submit"></p>
       {{ endif }}
-    {{ /commentatic:pagination }}
-
+  {{ /commentatic:form }}
 
 ## Helpers
 
