@@ -128,11 +128,9 @@ class Plugin_commentatic extends Plugin {
     
     $limit       = $this->config['comment_per_page']; // defaults to none
     $offset      = $this->fetch_param('offset', 0, 'is_numeric'); // defaults to zero
-    $show_future = $this->fetch_param('show_future', false, false, true); // defaults to no
     $sort_by     = $this->fetch_param('sort_by', 'date'); // defaults to date
     $sort_dir    = $this->fetch_param('sort_dir', 'asc'); // defaults to desc
     $conditions  = $this->fetch_param('conditions', null, false, false, false); // defaults to null
-    $slug        = $this->fetch_param('slug', null); // defaults to null
     $switch      = $this->fetch_param('switch', null); // defaults to null
     $since       = $this->fetch_param('since', null); // defaults to null
     $until       = $this->fetch_param('until', null); // defaults to null
@@ -188,8 +186,6 @@ class Plugin_commentatic extends Plugin {
     }
     
     $limit       = $this->config['comment_per_page']; // defaults to none
-    $show_future    = $this->fetch_param('show_future', false, false, true); // defaults to no
-    $show_past      = $this->fetch_param('show_past', true, false, true); // defaults to yes
     $conditions     = $this->fetch_param('conditions', null, false, false, false); // defaults to null
     $since          = $this->fetch_param('since', null); // defaults to null
     $until          = $this->fetch_param('until', null); // defaults to null
@@ -295,7 +291,6 @@ class Plugin_commentatic extends Plugin {
   // Comment page count
   protected function page_count() {
     if (!$this->total_pages) {
-      //$this->config['comment_per_page'] = $this->fetch_param('limit', 10, 'is_numeric');
       $this->total_pages = (int) ceil(($this->comment_count()) / $this->config['comment_per_page']);
     }
     return $this->total_pages;
